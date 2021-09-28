@@ -26,9 +26,9 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setResult("");
-    
+
     const { birthdate, luckyNumber } = data;
-    
+
     if (!birthdate || !luckyNumber) {
       setResult("Please fill both the fields");
       return;
@@ -49,22 +49,28 @@ function App() {
       </header>
       <main>
         <form>
-          <input
-            type="date"
-            name="birthdate"
-            onChange={handleInputChange}
-            required
-          />
-          <input
-            type="number"
-            name="luckyNumber"
-            min="0"
-            onChange={handleInputChange}
-            required
-          />
-          <button onClick={handleSubmit}>Is it?</button>
+          <div className="inputContainer">
+            <label htmlFor="birthdate">Your Birthdate</label>
+            <input
+              type="date"
+              name="birthdate"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="luckyNumber">Your Lucky Number</label>
+            <input
+              type="number"
+              name="luckyNumber"
+              min="0"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <button onClick={handleSubmit}>Is it Lucky?</button>
         </form>
-        <div>{result && <p>{result}</p>}</div>
+        <div className="result">{result && <p>{result}</p>}</div>
       </main>
       <footer>
         <p>
